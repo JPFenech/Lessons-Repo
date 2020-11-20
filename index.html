@@ -14,9 +14,6 @@
             <div>
             
             <header>
-                                     
-           
-
             </header>
             <main>
                     <div v-if='showProduct'>
@@ -24,7 +21,6 @@
                     <!--This will give us a list sorted by Price-->
                     
                     <div v-for="product in sortedProducts">
-                        
                         <h2 v-text ="product.subject"></h2>
                              <figure>
                                 <img v-bind:src="product.image">
@@ -35,10 +31,8 @@
                     
                         <!-- The button will display when 'Add to Cart is True -->                        
                         <!--When we click the Add To Cart are now passing the product and its ID to the function as parameters-->
-                        
-
-                            <!-- v-if to check how many products with the particular id are in the shopping 
-                                cart against what are available in the inventory of that particular product-->
+                        <!-- v-if to check how many products with the particular id are in the shopping 
+                          cart against what are available in the inventory of that particular product-->
                                 <span v-if="product.availableInventory === cartCount(product.id)">
                                     No Spaces Left!
                                 </span>
@@ -46,22 +40,16 @@
                                     Only {{product.availableInventory - cartCount(product.id)}} left!!
                                 </span>
                                 <span v-else> {{product.availableInventory - cartCount(product.id)}} Spaces Avaialble!</span>
-                            <!-- This button will be disabled otherwise -->
+                        <!-- This button will be disabled otherwise -->
                         <button  disabled ='disabled' v-else>Add to Cart</button>
-                        <br>
+                          <br>
                         <button @click='addToCart(product)' v-if='canAddToCart(product)'> Add to Cart </button>
-                        <br>
-                        <br>
+                          <br>
+                          <br>
 
-
-  
-                
             </div>
         </div>
-
-
-          
-                        
+            
            
             <div v-else>
                 <div class="container">
@@ -71,12 +59,7 @@
                     <strong>First Name:</strong>
                     <input v-model.trim="order.firstName" type="text" v-on:keypress="isLetter($event)" />
                 </p>
-             
-             
 
-
-                   
-        
                 <h2>Order Information</h2>
                 <p>First Name:{{order.firstName}}</p>
                 <p>Last Name: {{order.lastName}}</p>
@@ -87,9 +70,9 @@
                         
                  <button  
                  v-on:click="onSubmit" >Checkout</button>
-        </div>
+           </div>
     </div>
-            </main>
+             </main>
         </div>
     </body>
 
@@ -141,7 +124,6 @@
                              
             },
 
-            
                computed: {
                 cartItemCount: function(){
                     return this.cart.length;
@@ -165,7 +147,6 @@
                     return productsArray.sort(compare);
                 },
 
-                 
               
             },
         });

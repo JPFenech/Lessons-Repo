@@ -147,7 +147,20 @@
                 let char = String.fromCharCode(e.keyCode); 
                 if(/^[A-Za-z ]$/.test(char)) return true; 
                 else e.preventDefault(); // If no match, this will not allow keypress
-}
+                },
+
+                orderbyPrice: function() {
+                   this.products.sort((a,b) => a.price < b.price ? 1 : -1);
+                },
+                orderbySubject: function(){
+                   this.products.sort((a,b) => a.subject < b.subject ? 1 : -1);
+                }, 
+                orderbyLocat: function(){
+                   this.products.sort((a,b) => a.location < b.location ? 1 : -1);
+                },
+                orderbyAvail: function(){
+                   this.products.sort((a,b) => a.availableInventory < b.availableInventory ? 1 : -1);
+                } 
         
                              
             },

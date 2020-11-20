@@ -60,6 +60,19 @@
                 <p>
                     <strong>First Name:</strong>
                     <input v-model.trim="order.firstName" type="text" v-on:keypress="isLetter($event)" />
+                </p><!-- This input field is bound to 'lastName' in the 'order' object -->
+                <p>
+                    <strong> Last Name:</strong>
+                    <input v-model.trim="order.lastName" type="text" v-on:keypress="isLetter($event)"/>
+                </p>
+                <!-- This input field is bound to 'Address' in the 'order' object -->
+                <p>
+                    <strong>Address:</strong> 
+                    <input v-model.trim='order.address' type="text" v-on:keypress="isLetter($event)"/>
+                <!-- This input field is bound to 'Telephone Number' in the 'order' object -->
+                </p>
+                    <p><strong>Telephone Number</strong> 
+                    <input v-model.tel='order.number' type="number" />
                 </p>
 
                 <h2>Order Information</h2>
@@ -88,7 +101,10 @@
                 cart: [], // array to store items in shopping cart,
                     order: {
                     firstName: "",
-                                                     
+                    lastName: "",
+                    address: "",
+                    number: "",
+                                  
                       
                 },
                 products: products,

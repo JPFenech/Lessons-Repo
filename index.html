@@ -13,12 +13,16 @@
         <div id="app">
             <div>
                 <div>
-                    <button @click='orderbySubject()'> Subject </button>
-                    <button @click='orderbyPrice()'> Price </button>
-                    <button @click='orderbyLocat()'> Location </button>
-                    <button @click='orderbyAvail()'> Availability </button>      
+                    <button @click="sortS"> Subject </button>
+                    <button @click="sortP"> Price </button>
+                    <button @click="sortL"> Location </button>
+                    <button @click="sortI"> Availability </button>
+                    <button @click="reverse"> Change Order </button>
+            <!---- <button @click="orderbySubject()'> Subject </button>
+                   <button @click='orderbyPrice()'> Price </button>
+                   <button @click='orderbyLocat()'> Location </button>
+                   <button @click='orderbyAvail()'> Availability </button>---->                    
                 </div>      
-             
 
             <header>
                 <h1> {{ sitename }}</h1>
@@ -159,18 +163,67 @@
                 else e.preventDefault(); // If no match, this will not allow keypress
                 },
 
-                orderbyPrice: function() {
-                   this.products.sort((a,b) => a.price < b.price ? 1 : -1);
+            
+                
+                sortS: function () {
+    	        this.products.sort(this.sortSub);
                 },
-                orderbySubject: function(){
-                   this.products.sort((a,b) => a.subject < b.subject ? 1 : -1);
-                }, 
-                orderbyLocat: function(){
-                   this.products.sort((a,b) => a.location < b.location ? 1 : -1);
+                reverse: function () {
+    	        this.products.reverse();
                 },
-                orderbyAvail: function(){
-                   this.products.sort((a,b) => a.availableInventory < b.availableInventory ? 1 : -1);
-                } 
+
+                sortP: function () {
+    	        this.products.sort(this.sortPri);
+                },
+                reverse: function () {
+    	        this.products.reverse();
+                },
+
+                sortL: function () {
+    	        this.products.sort(this.sortLoc);
+                },
+                reverse: function () {
+    	        this.products.reverse();
+                },
+
+                sortI: function () {
+    	        this.products.sort(this.sortInv);
+                },
+                reverse: function () {
+    	        this.products.reverse();
+                },
+
+                 sortSub: function (a,b) {
+                 if(a.subject > b.subject)
+                 return 1;
+                 if (a.subject < b.subject)
+                 return -1;
+                 return 0;
+                 },
+
+                 sortPri: function (a,b) {
+                 if(a.price > b.price)
+                 return 1;
+                 if (a.price < b.price)
+                 return -1;
+                 return 0;
+                 },
+
+                 sortLoc: function (a,b) {
+                 if(a.location > b.location)
+                 return 1;
+                 if (a.location < b.location)
+                 return -1;
+                 return 0;
+                 },
+
+                 sortInv: function (a,b) {
+                 if(a.availableInventory > b.availableInventory)
+                 return 1;
+                 if (a.availableInventory < b.availableInventory)
+                 return -1;
+                 return 0;
+                 },
         
                              
             },
@@ -199,6 +252,8 @@
                 //    }
                 //    return productsArray.sort(compare);
                 //},
+
+            
 
               
             },

@@ -139,6 +139,13 @@
                     return count;
                 },
 
+                //text validation for Name + Surname + Address + Tel
+                isLetter(e) {
+                let char = String.fromCharCode(e.keyCode); 
+                if(/^[A-Za-z ]$/.test(char)) return true; 
+                else e.preventDefault(); // If no match, this will not allow keypress
+}
+        
                              
             },
 

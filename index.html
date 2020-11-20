@@ -72,33 +72,21 @@
                 <div class="container">
                 <h2>Checkout</h2>
                 <!-- This input field is bound to 'firstName' in the 'order' object -->
-                <p>
-                    <strong>First Name:</strong>
+                <p> <strong>Name:</strong>
                     <input v-model.trim="order.firstName" type="text" v-on:keypress="isLetter($event)" />
-                </p><!-- This input field is bound to 'lastName' in the 'order' object -->
-                <p>
-                    <strong> Last Name:</strong>
-                    <input v-model.trim="order.lastName" type="text" v-on:keypress="isLetter($event)"/>
                 </p>
-                <!-- This input field is bound to 'Address' in the 'order' object -->
-                <p>
-                    <strong>Address:</strong> 
-                    <input v-model.trim='order.address' type="text" v-on:keypress="isLetter($event)"/>
-                <!-- This input field is bound to 'Telephone Number' in the 'order' object -->
-                </p>
-                    <p><strong>Telephone Number</strong> 
+                
+                <p><strong>Telephone Number</strong> 
                     <input v-model.tel='order.number' type="number" />
                 </p>
 
                 <h2>Order Information</h2>
-                <p>First Name:{{order.firstName}}</p>
-                <p>Last Name: {{order.lastName}}</p>
-                <p>Address: {{order.address}}</p>
+                <p> Name:{{order.firstName}}</p>
                 <p>Number: {{order.number}}</p>
 
              <!--- button disabled until all 4 fields are filled correctly-->
                         
-                 <button :disabled="!order.firstName.length || !order.lastName.length || !order.address.length || !order.number.length"
+                 <button :disabled="!order.firstName.length || !order.number.length"
                  v-on:click="onSubmit" >Checkout</button>
                  </div>
             </div>
@@ -118,11 +106,8 @@
                 cart: [], // array to store items in shopping cart,
                     order: {
                     firstName: "",
-                    lastName: "",
-                    address: "",
                     number: "",
-                                  
-                      
+     
                 },
                 products: products,
             },

@@ -12,6 +12,13 @@
     <body>
         <div id="app">
             <div>
+                <div>
+                    <button @click='orderbySubject()'> Subject </button>
+                    <button @click='orderbyPrice()'> Price </button>
+                    <button @click='orderbyLocat()'> Location </button>
+                    <button @click='orderbyAvail()'> Availability </button>      
+                </div>      
+
             <header>
                 <h1> {{ sitename }}</h1>
                 <button   v-on:click='showCheckout'>{{cartItemCount}}
